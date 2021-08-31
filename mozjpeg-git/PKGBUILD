@@ -6,7 +6,7 @@ pkgdesc="Improved JPEG encoder"
 url="https://github.com/mozilla/mozjpeg"
 arch=('x86_64')
 license=('BSD')
-depends=('glibc')
+depends=('glibc' 'libpng')
 makedepends=('git' 'cmake' 'nasm' 'java-environment>11')
 optdepends=('java-runtime>11: for TurboJPEG Java wrapper')
 provides=('libjpeg' 'libjpeg.so' 'libturbojpeg.so' 'libjpeg-turbo' 'mozjpeg')
@@ -41,7 +41,7 @@ package() {
 	     exampledir="/usr/share/doc/${_name}" \
 	     install -C build
 	
-	#install -d "${pkgdir}/usr/share/licenses/${pkgname}"
+	install -d "${pkgdir}/usr/share/licenses/${pkgname}"
 	install -Dm644 LICENSE.md "${pkgdir}/usr/share/licenses/${pkgname}"
 	# header required by some dependants
 	# https://bugs.archlinux.org/task/24787

@@ -1,6 +1,6 @@
 _name=mozjpeg
 pkgname=mozjpeg-git
-pkgver=v4.0.3.r197.g512a7c3a
+pkgver=4.0.3.r198.g5552483d
 pkgrel=1
 pkgdesc="Improved JPEG encoder"
 url="https://github.com/mozilla/mozjpeg"
@@ -16,7 +16,7 @@ sha512sums=('SKIP')
 
 pkgver() {
 	cd "${_name}"
-	git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+	git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
 build() {
